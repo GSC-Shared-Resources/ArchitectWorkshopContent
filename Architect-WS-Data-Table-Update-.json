@@ -1,0 +1,61 @@
+{
+  "name": "Architect WS - Data Table Update - Exported 2022-11-22 @ 15:38",
+  "integrationType": "purecloud-data-actions",
+  "actionType": "custom",
+  "config": {
+    "request": {
+      "requestUrlTemplate": "/api/v2/flows/datatables/${input.DataTableID}/rows/${input.ANI}",
+      "requestType": "PUT",
+      "headers": {},
+      "requestTemplate": "{\n\"CustomerName\": \"${input.CustomerName}\",\n\"CaseStatus\": \"${input.CaseStatus}\",\n\"Services\": \"${input.Services}\",\n\"EmbeddedMap\": \"${input.EmbeddedMap}\",\n\"KBURL\": \"${input.KBURL}\",\n\"KEY\": \"${input.ANI}\"\n}"
+    },
+    "response": {
+      "translationMap": {},
+      "translationMapDefaults": {},
+      "successTemplate": "{\"successresponse\" : \"Case Updated Successfully\"}"
+    }
+  },
+  "contract": {
+    "input": {
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "CustomerName": {
+            "type": "string"
+          },
+          "CaseStatus": {
+            "type": "string"
+          },
+          "Services": {
+            "type": "string"
+          },
+          "EmbeddedMap": {
+            "type": "string"
+          },
+          "KBURL": {
+            "type": "string"
+          },
+          "ANI": {
+            "type": "string"
+          },
+          "DataTableID": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "output": {
+      "successSchema": {
+        "type": "object",
+        "properties": {
+          "successresponse": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "secure": false
+}
